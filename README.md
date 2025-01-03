@@ -1,4 +1,4 @@
-# Super Tecla 🎮
+# Tecla Rápido 🎮
 
 Um jogo de digitação divertido e desafiador onde você precisa digitar palavras corretamente antes que o tempo acabe! Teste sua velocidade e precisão enquanto acumula pontos.
 
