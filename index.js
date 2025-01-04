@@ -107,9 +107,6 @@ const sortearPalavra = () => {
         input.type = "text";
         input.maxLength = 1; // Permite apenas 1 caractere por input
         input.autocapitalize = "off"; // Desativa a capitalização automática
-        if (i === 0) {
-            input.autofocus = true; // Foca no primeiro input
-        }
         input.classList.add("w-10", "h-10", "text-center", "bg-dark", "text-light", "rounded-lg", "border-2", "border-light", "focus:outline-none", "focus:border-primary", "transition-all");
         inputsContainer.appendChild(input);
     }
