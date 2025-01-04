@@ -106,6 +106,7 @@ const sortearPalavra = () => {
         const input = document.createElement("input");
         input.type = "text";
         input.maxLength = 1; // Permite apenas 1 caractere por input
+        input.autocapitalize = "off"; // Desativa a capitalização automática
         if (i === 0) {
             input.autofocus = true; // Foca no primeiro input
         }
@@ -113,6 +114,14 @@ const sortearPalavra = () => {
         inputsContainer.appendChild(input);
     }
 
+    // Forçar o foco no primeiro input após um pequeno delay
+    setTimeout(() => {
+        const primeiroInput = document.querySelector("#inputs-container input");
+        if (primeiroInput) {
+            primeiroInput.focus();
+        }
+    }, 100); // 100ms de delay para garantir que o input esteja pronto
+    
     // Adicionar eventos aos inputs
     const inputs = document.querySelectorAll("#inputs-container input");
     inputs.forEach((input, index) => {
@@ -149,10 +158,9 @@ const verificarResposta = () => {
     const score = parseInt(document.querySelector("#score").innerHTML);
     if (resposta === palavraAtual) {
         document.querySelector("#score").innerHTML = score + 1;
+        // Limpar inputs e sortear nova palavra
+        sortearPalavra();
     }
-
-    // Limpar inputs e sortear nova palavra
-    sortearPalavra();
 };
 
 // Inicialização do jogo
@@ -162,12 +170,14 @@ document.addEventListener("DOMContentLoaded", () => {
     mostrarElemento("#inputs-container", false); // Oculta os inputs
     mostrarElemento("#clock");
     mostrarElemento("#clock_animado", false);
+    mostrarElemento("#palavra_sorteada", false)
 
     // Evento do botão "Começar"
     document.querySelector("#btn-comecar").addEventListener("click", () => {
         mostrarElemento("#btn-comecar", false); // Oculta o botão "Começar"
         mostrarElemento("#inputs-container"); // Mostra os inputs
         sortearPalavra(); // Inicia o jogo
+        mostrarElemento("#palavra_sorteada")
     });
 
     // Evento do botão "Recomeçar" no modal
@@ -175,6 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mostrarElemento("#modal-tempo-esgotado", false); // Oculta o modal
         mostrarElemento("#btn-comecar"); // Mostra o botão "Começar"
         mostrarElemento("#inputs-container", false); // Oculta os inputs
-        document.querySelector("#palavra_sorteada").innerHTML = `" Prepare-se "`; // Zera o score
+        mostrarElemento("#palavra_sorteada", false);
+        document.querySelector("#score").innerHTML = "0";
     });
 });

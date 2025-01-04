@@ -38,25 +38,24 @@
     </div>
 
     <!-- Score -->
-    <div class="fixed top-0 right-0 bg-primary text-light p-4 text-lg font-bold w-full sm:w-auto text-center md:w-auto">
+    <div class="fixed bottom-0 left-0 bg-primary text-light p-4 text-lg font-bold w-full sm:w-auto text-center md:w-auto">
         Score: <span id="score">0</span>
     </div>
 
     <!-- Conteúdo Principal -->
     <div class="bg-dark flex flex-col w-screen h-screen justify-center items-center">
         <h1 class="text-light text-3xl text-center font-bold mb-2">Super Tecla</h1>
-        <div class="w-1/12 h-1 bg-primary mb-2"></div>
-        <p class="text-light my-5">Tente escrever a palavra antes que o tempo termine</p>
-        <p id="palavra_sorteada" class="text-light text-2xl font-bold bg-primary px-8 py-4 rounded-lg border-2 border-primary mb-5">" Prepare-se "</p>
-        <dotlottie-player id="clock_animado" src="https://lottie.host/e6369d15-c1a7-4690-b652-c1d847e36daa/fVcpAkAzEs.lottie" background="transparent" speed="1" style="width: 200px; height: 200px" loop autoplay></dotlottie-player>
-        <i id="clock" class="ti ti-clock text-light text-5xl mb-5"></i>
-        <p id="segundos" class="text-3xl text-primary mb-5 font-bold">00 : 00</p>
+        <div class="w-3/12 sm:w-1/12 h-1 bg-primary"></div>
+        <dotlottie-player id="clock_animado" src="https://lottie.host/e6369d15-c1a7-4690-b652-c1d847e36daa/fVcpAkAzEs.lottie" background="transparent" speed="1" style="width: 100px; height: 100px" loop autoplay></dotlottie-player>
+        <i id="clock" class="ti ti-clock text-light text-5xl mt-4"></i>
+        <p id="segundos" class="text-3xl text-light mt-4 font-bold">00 : 00</p>
+        <p id="palavra_sorteada" class="text-light text-2xl font-bold bg-primary px-8 py-4 rounded-lg border-2 border-primary my-8"></p>
 
         <!-- Botão Começar -->
-        <button id="btn-comecar" class="px-4 py-2 text-light rounded-lg bg-primary hover:bg-secondary transition-all">Começar</button>
+        <button id="btn-comecar" class="mt-4 px-4 py-2 text-light rounded-lg bg-primary hover:bg-secondary transition-all">Começar</button>
 
         <!-- Container para os inputs dinâmicos -->
-        <div id="inputs-container" class="flex gap-2 mb-4 hidden"></div>
+        <div id="inputs-container" class="flex flex-wrap gap-2 mb-4 justify-center hidden"></div>
     </div>
     <script src="index.js"></script>
 </body>
